@@ -1,0 +1,31 @@
+gofish.o: gofish.c shuffle.o dealcards.o gameover.o askcard_man.o askcard_auto.o laydowncards.o calculateWinner.o cardsAmt.o modulo.o
+	gcc -g -o gofish gofish.c shuffle.o dealcards.o gameover.o askcard_man.o askcard_auto.o laydowncards.o calculateWinner.o cardsAmt.o modulo.o
+
+modulo.o: modulo.s
+	as --gstabs -o modulo.o modulo.s
+
+cardsAmt.o: cardsAmt.s
+	as --gstabs -o cardsAmt.o cardsAmt.s
+
+calculateWinner.o: calculateWinner.s
+	as --gstabs -o calculateWinner.o calculateWinner.s
+
+laydowncards.o: laydowncards.s
+	as --gstabs -o laydowncards.o laydowncards.s
+
+askcard_auto.o: askcard_auto.s
+	as --gstabs -o askcard_auto.o askcard_auto.s
+
+askcard_man.o: askcard_man.s
+	as --gstabs -o askcard_man.o askcard_man.s
+
+shuffle.o: shuffle.s
+	as --gstabs -o shuffle.o shuffle.s
+
+dealcards.o: dealcards.s
+	as --gstabs -o dealcards.o dealcards.s
+
+gameover.o: gameover.s
+	as --gstabs -o gameover.o gameover.s
+clean:
+	rm -f *.o
